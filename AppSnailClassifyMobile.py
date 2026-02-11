@@ -1,5 +1,5 @@
 import streamlit as st
-import cv2
+import opencv-python-headless as cv2
 from ultralytics import YOLO
 import tempfile
 import os
@@ -114,4 +114,5 @@ def main():
             st.error(f"เกิดข้อผิดพลาดในการลบไฟล์ชั่วคราว: {e}")
             
 if __name__ == "__main__":
+
     main()
