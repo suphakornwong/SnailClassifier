@@ -175,7 +175,7 @@ def process_snail_data(top_class_name):
         speech_protect = INFO_CHERRY
 
     elif first_token == "Null":
-        display_info = ["จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", "ไม่มีข้อมูล", "ไม่มีข้อมูล", "ไม่มีข้อมูล", "ไม่มีข้อมูล"]
+        display_info = ["จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", "", "ไม่มีข้อมูล", "", ""]
         speech_protect = INFO_NULL
     
     # Fallback กรณีไม่เข้าเงื่อนไขข้างบน แต่ชื่อภาษาไทยตรง (จาก Logic เดิมช่วงบรรทัด 110-152)
@@ -215,13 +215,15 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
     
     # เตรียมข้อความสำหรับพูด
-    result_text_th1 = " ผลการจัดจำแนกหอยศัตรูพืชจากรูป คาดว่าน่าจะเป็น"
-    result_text_thainame = f"หอย {snail_data['thai_name'] + (snail_data['tokens'][1] if len(snail_data['tokens'])>1 else '')}"
-    result_text_en = f" The {snail_data['sci_name_1'] + ' ' + snail_data['sci_name_2']}"
-    result_text_introfam = f" จัดจำแนก {snail_data['tokens'][4] if len(snail_data['tokens'])>4 else ''}"
-    result_text_family = f" family {snail_data['family']}"
-    result_text_th2 = f" ด้วยมีความมั่นใจ {confidence_text}"
-    result_text_introprotect = " ถ้าหาก คุณอยากทราบข้อมูลเกี่ยวกับวิธีการป้องกันกำจัด กระผมสามารถให้ข้อมูลได้ โดยกดปุ่มป้องกัน กำจัดที่อยู่ด้านล่างสุดครับ"
+    if display_info[0] !== "จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช":
+        result_text_th1 = " ผลการจัดจำแนกหอยศัตรูพืชจากรูป คาดว่าน่าจะเป็น"
+        result_text_thainame = f"หอย {snail_data['thai_name'] + (snail_data['tokens'][1] if len(snail_data['tokens'])>1 else '')}"
+        result_text_en = f" The {snail_data['sci_name_1'] + ' ' + snail_data['sci_name_2']}"
+        result_text_introfam = f" จัดจำแนก {snail_data['tokens'][4] if len(snail_data['tokens'])>4 else ''}"
+        result_text_family = f" family {snail_data['family']}"
+        result_text_th2 = f" ด้วยมีความมั่นใจ {confidence_text}"
+        result_text_introprotect = " ถ้าหาก คุณอยากทราบข้อมูลเกี่ยวกับวิธีการป้องกันกำจัด กระผมสามารถให้ข้อมูลได้ โดยกดปุ่มป้องกัน กำจัดที่อยู่ด้านล่างสุดครับ"
+
 
     html_code = f"""
     <script>
@@ -321,5 +323,6 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
+
 
 
