@@ -176,7 +176,7 @@ def process_snail_data(top_class_name):
 
     elif first_token == "Null":
         display_info = ["จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", "ไม่มีข้อมูล", "ไม่มีข้อมูล", "ไม่มีข้อมูล", "ไม่มีข้อมูล"]
-        speech_protect = INFO_Null
+        speech_protect = INFO_NULL
     
     # Fallback กรณีไม่เข้าเงื่อนไขข้างบน แต่ชื่อภาษาไทยตรง (จาก Logic เดิมช่วงบรรทัด 110-152)
     # หมายเหตุ: ถ้า logic ข้างบนครอบคลุมหมดแล้ว ส่วนนี้อาจจะไม่ถูกเรียกใช้ แต่ใส่ไว้กันพลาด
@@ -321,3 +321,4 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
+
