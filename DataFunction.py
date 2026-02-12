@@ -50,7 +50,7 @@ INFO_PILA = """  มีรายงานว่าหอยสกุลดัง
 INFO_OTHER_WATER_SNAIL = """  หอยชนิดนี้เป็นศัตรูที่สำคัญของ บัว และ ไม้น้ำสวยงาม 
 แต่ขออภัยด้วย หอยชนิดนี้ยังไม่มีคำแนะนำอย่างเป็นทางการจากกรมวิชาการเกษตร ในการป้องกันและกำจัดครับ"""
 
-INFO_NULL = """  ภาพดังกล่าวไม่ใช้หอยฝาเดียวน้ำจืดศัตรูพืชครับ ผมไม่สามารถจัดจำแนกได้"""
+INFO_NULL = """  ภาพดังกล่าวไม่ใช่หอยศัตรูพืชครับ ผมไม่สามารถจัดจำแนกได้"""
 
 
 # ==========================================
@@ -94,21 +94,18 @@ def process_snail_data(top_class_name):
     รับค่าชื่อ Class จาก YOLO (เช่น 'Parmarion_martensi')
     คืนค่าเป็น Dictionary ที่ประกอบด้วยข้อมูลสำหรับแสดงผลและ TTS
     """
-    # แยกคำด้วยช่องว่าง (ตาม Logic เดิม)
+    # แยกคำด้วยช่องว่าง
     tokens = top_class_name.split()
     
     # ค่าเริ่มต้น
     speech_protect = ""
     display_info = tokens # Default list
     
-    # Logic การ Map ข้อมูล (รวม Logic เดิมทั้ง 2 ส่วนไว้ด้วยกันเพื่อลดความซ้ำซ้อน)
-    # ใช้ dict mapping เพื่อให้อ่านง่ายขึ้น (หรือใช้ if-elif เดิมก็ได้ แต่แบบนี้จัดการง่ายกว่า)
-    
     first_token = tokens[0]
 
+    # Handle Null case explicitly for first token check
     if first_token == "Null":
         first_token = "Null_Class"
-    
     
     if first_token == "Parmarion_martensi":
         display_info = ["ทากเล็บมือนาง", "มีชื่อวิทยาศาสตร์คือ", "Parmarion", "martensi", "จัดอยู่ในวงศ์", "Ariophantidae"]
@@ -179,11 +176,11 @@ def process_snail_data(top_class_name):
         speech_protect = INFO_CHERRY
 
     elif first_token == "Null_Class":
-        display_info = ["จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", " ", "ไม่มีข้อมูล", " ", " "]
+        # แก้ไขข้อความตรงนี้ให้สั้นลง เพื่อให้ Logic ตรวจสอบง่ายขึ้น
+        display_info = ["ไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", " ", "ไม่มีข้อมูล", " ", " "]
         speech_protect = INFO_NULL
     
-    # Fallback กรณีไม่เข้าเงื่อนไขข้างบน แต่ชื่อภาษาไทยตรง (จาก Logic เดิมช่วงบรรทัด 110-152)
-    # หมายเหตุ: ถ้า logic ข้างบนครอบคลุมหมดแล้ว ส่วนนี้อาจจะไม่ถูกเรียกใช้ แต่ใส่ไว้กันพลาด
+    # Fallback
     elif not speech_protect: 
         if first_token in ["หอยอำพัน", "หอยเจดีย์ใหญ่", "หอยเจดีย์เล็ก", "หอยข้าวสารยอดมน", "ทากเล็บมือนาง"]:
             speech_protect = INFO_AMBER_SUBULI_MARTEN
@@ -201,7 +198,9 @@ def process_snail_data(top_class_name):
             speech_protect = INFO_PILA
         elif first_token in ["หอยคัน", "หอยคันหรือหอยคันอินโด", "หอยเจดีย์ลายเสือ"]:
             speech_protect = INFO_OTHER_WATER_SNAIL
-        elif first_token in "จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช":
+        
+        # เพิ่มเช็คตรงนี้เผื่อกรณีที่คำนำหน้าภาษาไทยตรงกับกรณี Null
+        elif "ไม่ใช่หอยศัตรูพืช" in first_token:
             speech_protect = INFO_NULL
 
     return {
@@ -218,8 +217,17 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     สร้าง HTML Script สำหรับ TTS ผลลัพธ์ และปุ่มป้องกันกำจัด
     """
     
-    # เตรียมข้อความสำหรับพูด
-    if display_info[0] !== "จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช":
+    # ประกาศตัวแปรค่าเริ่มต้นไว้ก่อนกัน Error
+    result_text_th1 = ""
+    result_text_thainame = ""
+    result_text_en = ""
+    result_text_introfam = ""
+    result_text_family = ""
+    result_text_th2 = ""
+    result_text_introprotect = ""
+
+    # ใช้ snail_data['tokens'][0] แทน display_info[0] และใช้ != แทน !==
+    if snail_data['tokens'][0] != "ไม่ใช่หอยศัตรูพืช":
         result_text_th1 = " ผลการจัดจำแนกหอยศัตรูพืชจากรูป คาดว่าน่าจะเป็น"
         result_text_thainame = f"หอย {snail_data['thai_name'] + (snail_data['tokens'][1] if len(snail_data['tokens'])>1 else '')}"
         result_text_en = f" The {snail_data['sci_name_1'] + ' ' + snail_data['sci_name_2']}"
@@ -227,7 +235,10 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
         result_text_family = f" family {snail_data['family']}"
         result_text_th2 = f" ด้วยมีความมั่นใจ {confidence_text}"
         result_text_introprotect = " ถ้าหาก คุณอยากทราบข้อมูลเกี่ยวกับวิธีการป้องกันกำจัด กระผมสามารถให้ข้อมูลได้ โดยกดปุ่มป้องกัน กำจัดที่อยู่ด้านล่างสุดครับ"
-
+    else:
+        # กรณีที่เป็น Null (ไม่ใช่หอยศัตรูพืช) ให้พูดสั้นๆ
+        result_text_th1 = " จากรูปภาพดังกล่าว ไม่ใช่หอยศัตรูพืชครับ"
+        # ส่วนอื่นปล่อยว่างไว้
 
     html_code = f"""
     <script>
@@ -327,9 +338,3 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
-
-
-
-
-
-
