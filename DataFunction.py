@@ -105,6 +105,10 @@ def process_snail_data(top_class_name):
     # ใช้ dict mapping เพื่อให้อ่านง่ายขึ้น (หรือใช้ if-elif เดิมก็ได้ แต่แบบนี้จัดการง่ายกว่า)
     
     first_token = tokens[0]
+
+    if first_token == first_token == "Null":
+        first_token = "Null_Class"
+    
     
     if first_token == "Parmarion_martensi":
         display_info = ["ทากเล็บมือนาง", "มีชื่อวิทยาศาสตร์คือ", "Parmarion", "martensi", "จัดอยู่ในวงศ์", "Ariophantidae"]
@@ -175,7 +179,7 @@ def process_snail_data(top_class_name):
         speech_protect = INFO_CHERRY
 
     elif first_token == "Null":
-        display_info = ["จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", "", "ไม่มีข้อมูล", "", ""]
+        display_info = ["จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", " ", "ไม่มีข้อมูล", " ", " "]
         speech_protect = INFO_NULL
     
     # Fallback กรณีไม่เข้าเงื่อนไขข้างบน แต่ชื่อภาษาไทยตรง (จาก Logic เดิมช่วงบรรทัด 110-152)
@@ -323,6 +327,7 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
+
 
 
 
