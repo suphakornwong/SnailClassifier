@@ -106,7 +106,7 @@ def process_snail_data(top_class_name):
     
     first_token = tokens[0]
 
-    if first_token == first_token == "Null":
+    if first_token == "Null":
         first_token = "Null_Class"
     
     
@@ -327,6 +327,7 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
+
 
 
 
