@@ -178,7 +178,7 @@ def process_snail_data(top_class_name):
         display_info = ["หอยแอปเปิ้ลเกาะ", "มีชื่อวิทยาศาสตร์คือ", "Pomacea", "maculata", "จัดอยู่ในวงศ์", "Ampullariidae"]
         speech_protect = INFO_CHERRY
 
-    elif first_token == "Null":
+    elif first_token == "Null_Class":
         display_info = ["จากรูปภาพดังกล่าวไม่ใช่หอยศัตรูพืช", "ไม่มีข้อมูล", " ", "ไม่มีข้อมูล", " ", " "]
         speech_protect = INFO_NULL
     
@@ -327,6 +327,7 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
+
 
 
 
