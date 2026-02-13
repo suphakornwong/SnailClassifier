@@ -27,7 +27,7 @@ def main():
     # ดึงปุ่มแนะนำระบบมาจาก DataFunction
     components.html(df.get_intro_button_html(), height=40)
     
-    model_path = "best.pt"
+    model_path = "best(1).pt"
     # ตอนนี้รองรับแค่โมเดลที่ชื่อว่า Best.pt
    
     # ==========================================
@@ -116,5 +116,6 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
