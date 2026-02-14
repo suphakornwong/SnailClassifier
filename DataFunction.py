@@ -245,29 +245,29 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     function speakMultilingual() {{
             const synth = window.speechSynthesis;
                     
-            const preloadUtterance = new SpeechSynthesisUtterance("...");
+            const preloadUtterance = new SpeechSynthesisUtterance(" ");
             preloadUtterance.lang = "en-US";  
                     
             const part1 = new SpeechSynthesisUtterance({json.dumps(result_text_th1)});
-            part1.lang = 'th-TH'; part1.pitch = 0.8; part1.rate = 0.7;
+            part1.lang = 'th-TH'; part1.pitch = 0.8; part1.rate = 0.75;
                     
             const part2 = new SpeechSynthesisUtterance({json.dumps(result_text_thainame)});
-            part2.lang = 'th-TH'; part2.pitch = 0.8; part2.rate = 0.7;
+            part2.lang = 'th-TH'; part2.pitch = 0.8; part2.rate = 0.75;
 
             const part3 = new SpeechSynthesisUtterance({json.dumps(result_text_en)});
             part3.lang = 'en-US'; part3.pitch = 0.8; part3.rate = 0.7;
                     
             const part4 = new SpeechSynthesisUtterance({json.dumps(result_text_introfam)});
-            part4.lang = 'th-TH'; part4.pitch = 0.8; part4.rate = 0.7;
+            part4.lang = 'th-TH'; part4.pitch = 0.8; part4.rate = 0.75;
 
             const part5 = new SpeechSynthesisUtterance({json.dumps(result_text_family)});
             part5.lang = 'en-US'; part5.pitch = 0.8; part5.rate = 0.7;
                     
             const part6 = new SpeechSynthesisUtterance({json.dumps(result_text_th2)});
-            part6.lang = 'th-TH'; part6.pitch = 0.8; part6.rate = 0.7;
+            part6.lang = 'th-TH'; part6.pitch = 0.8; part6.rate = 0.75;
                     
             const part7 = new SpeechSynthesisUtterance({json.dumps(result_text_introprotect)});
-            part7.lang = 'th-TH'; part7.pitch = 0.8; part7.rate = 0.7;
+            part7.lang = 'th-TH'; part7.pitch = 0.8; part7.rate = 0.75;
                 
             function setVoicesAndSpeak() {{
                     const voices = synth.getVoices();
@@ -310,7 +310,7 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
             const msg1 = new SpeechSynthesisUtterance({json.dumps(snail_data['protect_text'])});
             msg1.lang = "th-TH";
             msg1.pitch = 0.8;
-            msg1.rate = 0.7;
+            msg1.rate = 0.75;
 
             function setVoiceAndSpeak() {{
                     const voices = synth.getVoices();
@@ -338,4 +338,5 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
+
 
