@@ -229,9 +229,9 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     # ใช้ snail_data['tokens'][0] แทน display_info[0] และใช้ != แทน !==
     if snail_data['tokens'][0] != "ไม่ใช่หอยศัตรูพืช":
         result_text_th1 = " ผลการจัดจำแนกหอยศัตรูพืชจากรูป คาดว่าน่าจะเป็น"
-        result_text_thainame = f"หอย {snail_data['thai_name'] + (snail_data['tokens'][1] if len(snail_data['tokens'])>1 else '')}"
+        result_text_thainame = f" {snail_data['thai_name'] + (snail_data['tokens'][1] if len(snail_data['tokens'])>1 else '')}"
         result_text_en = f" The {snail_data['sci_name_1'] + ' ' + snail_data['sci_name_2']}"
-        result_text_introfam = f" จัดจำแนก {snail_data['tokens'][4] if len(snail_data['tokens'])>4 else ''}"
+        result_text_introfam = f" {snail_data['tokens'][4] if len(snail_data['tokens'])>4 else ''}"
         result_text_family = f" family {snail_data['family']}"
         result_text_th2 = f" ด้วยมีความมั่นใจ {confidence_text}"
         result_text_introprotect = " ถ้าหาก คุณอยากทราบข้อมูลเกี่ยวกับวิธีการป้องกันกำจัด กระผมสามารถให้ข้อมูลได้ โดยกดปุ่มป้องกัน กำจัดที่อยู่ด้านล่างสุดครับ"
@@ -249,25 +249,25 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
             preloadUtterance.lang = "en-US";  
                     
             const part1 = new SpeechSynthesisUtterance({json.dumps(result_text_th1)});
-            part1.lang = 'th-TH'; part1.pitch = 0.8; part1.rate = 0.65;
+            part1.lang = 'th-TH'; part1.pitch = 0.8; part1.rate = 0.7;
                     
             const part2 = new SpeechSynthesisUtterance({json.dumps(result_text_thainame)});
-            part2.lang = 'th-TH'; part2.pitch = 0.8; part2.rate = 0.65;
+            part2.lang = 'th-TH'; part2.pitch = 0.8; part2.rate = 0.7;
 
             const part3 = new SpeechSynthesisUtterance({json.dumps(result_text_en)});
-            part3.lang = 'en-US'; part3.pitch = 0.8; part3.rate = 0.6;
+            part3.lang = 'en-US'; part3.pitch = 0.8; part3.rate = 0.7;
                     
             const part4 = new SpeechSynthesisUtterance({json.dumps(result_text_introfam)});
-            part4.lang = 'th-TH'; part4.pitch = 0.8; part4.rate = 0.65;
+            part4.lang = 'th-TH'; part4.pitch = 0.8; part4.rate = 0.7;
 
             const part5 = new SpeechSynthesisUtterance({json.dumps(result_text_family)});
-            part5.lang = 'en-US'; part5.pitch = 0.8; part5.rate = 0.6;
+            part5.lang = 'en-US'; part5.pitch = 0.8; part5.rate = 0.7;
                     
             const part6 = new SpeechSynthesisUtterance({json.dumps(result_text_th2)});
-            part6.lang = 'th-TH'; part6.pitch = 0.8; part6.rate = 0.65;
+            part6.lang = 'th-TH'; part6.pitch = 0.8; part6.rate = 0.7;
                     
             const part7 = new SpeechSynthesisUtterance({json.dumps(result_text_introprotect)});
-            part7.lang = 'th-TH'; part7.pitch = 0.8; part7.rate = 0.65;
+            part7.lang = 'th-TH'; part7.pitch = 0.8; part7.rate = 0.7;
                 
             function setVoicesAndSpeak() {{
                     const voices = synth.getVoices();
@@ -310,7 +310,7 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
             const msg1 = new SpeechSynthesisUtterance({json.dumps(snail_data['protect_text'])});
             msg1.lang = "th-TH";
             msg1.pitch = 0.8;
-            msg1.rate = 0.65;
+            msg1.rate = 0.7;
 
             function setVoiceAndSpeak() {{
                     const voices = synth.getVoices();
@@ -338,3 +338,4 @@ def get_tts_html_script(snail_data, confidence_text, uploaded_file_exists):
     """
 
     return html_code
+
