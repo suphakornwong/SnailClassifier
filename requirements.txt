@@ -4,4 +4,3 @@ opencv-python-headless
 pandas
 Pillow
 torch
-numpy>=1.26.0
