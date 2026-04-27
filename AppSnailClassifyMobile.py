@@ -53,19 +53,20 @@ def main():
 
     if uploaded_file is not None:
         # บันทึกไฟล์ชั่วคราว
-        tfile = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
-        tfile.write(uploaded_file.read())
-
+        # tfile = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
+        # tfile.write(uploaded_file.read())
+        
+        img = Image.open(uploaded_file)
         # โหลดโมเดล YOLO
         model = YOLO(model_path)
 
         # อ่านไฟล์ภาพ
-        img = cv2.imread(tfile.name)
+        # img = cv2.imread(tfile.name)
 
         # เริ่มการตรวจจับ
         # สามารถแสดง spinner โหลดข้อมูลเพื่อให้ฝั่ง Mobile รู้ว่าระบบกำลังประมวลผลอยู่
         with st.spinner('กำลังวิเคราะห์รูปภาพ...'):
-            results = model(tfile.name, conf=0.05, imgsz=640)[0]
+                    results = model(img, conf=0.05, imgsz=640)[0]
         
         # ส่วนแสดงผลรูปภาพ
         img_with_boxes = results.plot()
@@ -122,11 +123,11 @@ def main():
             st.warning("ไม่สามารถดึงผลการจัดจำแนกจากโมเดลได้")
         
         # ลบไฟล์ชั่วคราว
-        try:
-            tfile.close()
-            os.unlink(tfile.name)
-        except Exception as e:
-            st.error(f"เกิดข้อผิดพลาดในการลบไฟล์ชั่วคราว: {e}")
+        # try:
+        #     tfile.close()
+        #     os.unlink(tfile.name)
+        # except Exception as e:
+        #     st.error(f"เกิดข้อผิดพลาดในการลบไฟล์ชั่วคราว: {e}")
             
 if __name__ == "__main__":
 
