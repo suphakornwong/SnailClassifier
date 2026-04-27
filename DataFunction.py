@@ -108,71 +108,71 @@ def process_snail_data(top_class_name):
         first_token = "Null_Class"
     
     if first_token == "Parmarion_martensi":
-        display_info = [" ทากเล็บมือนาง", " มีชื่อวิทยาศาสตร์คือ", " Parmarion", " martensi", " จัดอยู่ในวงศ์", " Ariophantidae"]
+        display_info = [" ทากทากเล็บมือนาง", " มีชื่อวิทยาศาสตร์คือ", " Parmarion", " martensi", " จัดอยู่ในวงศ์", " Ariophantidae"]
         speech_protect = INFO_AMBER_SUBULI_MARTEN
         
     elif first_token == "Subulina_octona":
-        display_info = [" หอยข้าวสารยอดมน", " มีชื่อวิทยาศาสตร์คือ", " Subulina", " octona", " จัดอยู่ในวงศ์", " Subulinidae"]
+        display_info = [" หอยหอยข้าวสารยอดมน", " มีชื่อวิทยาศาสตร์คือ", " Subulina", " octona", " จัดอยู่ในวงศ์", " Subulinidae"]
         speech_protect = INFO_AMBER_SUBULI_MARTEN
         
     elif first_token == "Pila_sp":
-        display_info = [" หอยโข่ง", " มีชื่อวิทยาศาสตร์ว่า", " Pila", " sp.", " จัดอยู่ในวงศ์", " Ampullariidae"]
+        display_info = [" หอยหอยโข่ง", " มีชื่อวิทยาศาสตร์ว่า", " Pila", " sp.", " จัดอยู่ในวงศ์", " Ampullariidae"]
         speech_protect = INFO_PILA
         
     elif first_token == "Physella_acuta":
-        display_info = [" หอยคันหอยบัวหรือหอยบ่อ", " มีชื่อวิทยาศาสตร์ว่า", " Physella", " acuta", " จัดอยู่ในวงศ์", " Physidae"]
+        display_info = [" หอยหอยคันหอยบัวหรือหอยบ่อ", " มีชื่อวิทยาศาสตร์ว่า", " Physella", " acuta", " จัดอยู่ในวงศ์", " Physidae"]
         speech_protect = INFO_OTHER_WATER_SNAIL
         
     elif first_token == "Radix_sp":
-        display_info = [" หอยคันหอยบัวหรือหอยบ่อ", " มีชื่อวิทยาศาสตร์ว่า", " Radix", " sp.", " จัดอยู่ในวงศ์", " Lymnaeidae"]
+        display_info = [" หอยหอยคันหอยบัวหรือหอยบ่อ", " มีชื่อวิทยาศาสตร์ว่า", " Radix", " sp.", " จัดอยู่ในวงศ์", " Lymnaeidae"]
         speech_protect = INFO_OTHER_WATER_SNAIL
         
     elif first_token == "Indoplanorbis_exustus":
-        display_info = [" หอยคันหรือหอยคันอินโด", " มีชื่อวิทยาศาสตร์ว่า", " Indoplanorbis", " exustus", " จัดอยู่ในวงศ์", " Bulinidae"]
+        display_info = [" หอยหอยคันหรือหอยคันอินโด", " มีชื่อวิทยาศาสตร์ว่า", " Indoplanorbis", " exustus", " จัดอยู่ในวงศ์", " Bulinidae"]
         speech_protect = INFO_OTHER_WATER_SNAIL
         
     elif first_token == "Melanoides_tuberculata":
-        display_info = [" หอยเจดีย์ลายเสือ", " มีชื่อวิทยาศาสตร์ว่า", " Melanoides", " tuberculata", " จัดอยู่ในวงศ์", " Thiaridae"]
+        display_info = [" หอยหอยเจดีย์ลายเสือ", " มีชื่อวิทยาศาสตร์ว่า", " Melanoides", " tuberculata", " จัดอยู่ในวงศ์", " Thiaridae"]
         speech_protect = INFO_OTHER_WATER_SNAIL
         
     elif first_token == "Allopeas_gracile":
-        display_info = [" หอยเจดีย์เล็กหรือหอยข้าวสารธรรมดา", " มีชื่อวิทยาศาสตร์คือ", " Allopeas", " gracile", " จัดอยู่ในวงศ์", " Subulinidae"]
+        display_info = [" หอยหอยเจดีย์เล็กหรือหอยข้าวสารธรรมดา", " มีชื่อวิทยาศาสตร์คือ", " Allopeas", " gracile", " จัดอยู่ในวงศ์", " Subulinidae"]
         speech_protect = INFO_AMBER_SUBULI_MARTEN
         
     elif first_token == "Paropeas_sp":
-        display_info = [" หอยเจดีย์ใหญ่", " มีชื่อวิทยาศาสตร์คือ", " Paropeas", " sp.", " จัดอยู่ในวงศ์", " Subulinidae"]
+        display_info = [" หอยหอยเจดีย์ใหญ่", " มีชื่อวิทยาศาสตร์คือ", " Paropeas", " sp.", " จัดอยู่ในวงศ์", " Subulinidae"]
         speech_protect = INFO_AMBER_SUBULI_MARTEN
         
     elif first_token == "Pomacea_canaliculata":
-        display_info = [" หอยเชอรี่", " มีชื่อวิทยาศาสตร์คือ", " Pomacea", " canaliculata", " จัดอยู่ในวงศ์", " Ampullariidae"]
+        display_info = [" หอยหอยเชอรี่", " มีชื่อวิทยาศาสตร์คือ", " Pomacea", " canaliculata", " จัดอยู่ในวงศ์", " Ampullariidae"]
         speech_protect = INFO_CHERRY
         
     elif first_token == "Sarika_siamensis":
-        display_info = [" หอยดักดานหรือหอยทากสยาม", " มีชื่อวิทยาศาสตร์คือ", " Sarika", " siamensis", " จัดอยู่ในวงศ์", " Ariophantidae"]
+        display_info = [" หอยหอยดักดานหรือหอยทากสยาม", " มีชื่อวิทยาศาสตร์คือ", " Sarika", " siamensis", " จัดอยู่ในวงศ์", " Ariophantidae"]
         speech_protect = INFO_SARIKA
         
     elif first_token == "Lissachatina_fulica":
-        display_info = [" หอยทากยักษ์แอฟริกา", " มีชื่อวิทยาศาสตร์คือ", " Lissachatina", " fulica", " จัดอยู่ในวงศ์", " Achatinidae"]
+        display_info = [" หอยหอยทากยักษ์แอฟริกา", " มีชื่อวิทยาศาสตร์คือ", " Lissachatina", " fulica", " จัดอยู่ในวงศ์", " Achatinidae"]
         speech_protect = INFO_LISSA
         
     elif first_token == "Ovachlamys_fulgens":
-        display_info = [" หอยเลขหนึ่ง", " มีชื่อวิทยาศาสตร์คือ", " Ovachlamys", " fulgens", " จัดอยู่ในวงศ์", " Helicarionidae"]
+        display_info = [" หอยหอยเลขหนึ่ง", " มีชื่อวิทยาศาสตร์คือ", " Ovachlamys", " fulgens", " จัดอยู่ในวงศ์", " Helicarionidae"]
         speech_protect = INFO_JUMPING
         
     elif first_token == "Bradybaena_similaris":
-        display_info = [" หอยสะดือบุ๋ม", " มีชื่อวิทยาศาสตร์ว่า", " Bradybaena", " similaris", " จัดอยู่ในวงศ์", " Camaenidae"]
+        display_info = [" หอยหอยสะดือบุ๋ม", " มีชื่อวิทยาศาสตร์ว่า", " Bradybaena", " similaris", " จัดอยู่ในวงศ์", " Camaenidae"]
         speech_protect = INFO_BRADYBAENA
         
     elif first_token == "Sarika_resplendens":
-        display_info = [" หอยสาริกา", " มีชื่อวิทยาศาสตร์คือ", " Sarika", " resplendens", " จัดอยู่ในวงศ์", " Ariophantidae"]
+        display_info = [" หอยหอยสาริกา", " มีชื่อวิทยาศาสตร์คือ", " Sarika", " resplendens", " จัดอยู่ในวงศ์", " Ariophantidae"]
         speech_protect = INFO_SARIKA
         
     elif first_token == "Succinea_sp":
-        display_info = [" หอยอำพัน", " มีชื่อวิทยาศาสตร์คือ", " Succinea", " sp.", " จัดอยู่ในวงศ์", " Succineidae"]
+        display_info = [" หอยหอยอำพัน", " มีชื่อวิทยาศาสตร์คือ", " Succinea", " sp.", " จัดอยู่ในวงศ์", " Succineidae"]
         speech_protect = INFO_AMBER_SUBULI_MARTEN
         
     elif first_token == "Pomacea_maculata":
-        display_info = [" หอยแอปเปิ้ลเกาะ", " มีชื่อวิทยาศาสตร์คือ", " Pomacea", " maculata", " จัดอยู่ในวงศ์", " Ampullariidae"]
+        display_info = [" หอยหอยแอปเปิ้ลเกาะ", " มีชื่อวิทยาศาสตร์คือ", " Pomacea", " maculata", " จัดอยู่ในวงศ์", " Ampullariidae"]
         speech_protect = INFO_CHERRY
 
     elif first_token == "Null_Class":
