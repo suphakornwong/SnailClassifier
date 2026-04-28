@@ -19,7 +19,7 @@ def main():
     # ส่วนหัวของแอปพลิเคชัน (ย้ายจาก Sidebar มาไว้หน้าหลัก)
     # ==========================================
     # ใช้ markdown เพื่อปรับขนาดตัวอักษรให้ดูซอฟต์ลง ไม่แย่งซีน Title หลัก
-    st.markdown("<h3 style='text-align: center; color: white;'>งานวิจัยของศุภกร วงษ์เรืองพิบูล สังกัดโครงการของ ดร. สุนัดดา เชาวลิต</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: white;'>งานวิจัยของศุภกร วงษ์เรืองพิบูล สังกัดโครงการของ       ดร. สุนัดดา เชาวลิต</h3>", unsafe_allow_html=True)
     st.markdown("---") # เพิ่มเส้นคั่นบางๆ ให้ดูเป็นระเบียบ
     st.title("🐌 Image classification snail pest")
     # ดึงปุ่มแนะนำระบบมาจาก DataFunction
