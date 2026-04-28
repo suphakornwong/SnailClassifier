@@ -20,7 +20,8 @@ def main():
     # ==========================================
     # ใช้ markdown เพื่อปรับขนาดตัวอักษรให้ดูซอฟต์ลง ไม่แย่งซีน Title หลัก
     st.markdown("<h3 style='text-align: center; color: white;'>งานวิจัยของศุภกร วงษ์เรืองพิบูล</h3>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; color: white;'>สังกัดโครงการของ ดร.สุนัดดา เชาวลิต ; แผนวิจัยของ ดร.ยุวรินทร์ บุณทบ</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: white;'>สังกัดโครงการของ ดร.สุนัดดา เชาวลิต</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: white;'>แผนวิจัยของ ดร.ยุวรินทร์ บุณทบ</h3>", unsafe_allow_html=True)
     st.markdown("---") # เพิ่มเส้นคั่นบางๆ ให้ดูเป็นระเบียบ
     st.title("🐌 Image classification snail pest")
     # ดึงปุ่มแนะนำระบบมาจาก DataFunction
